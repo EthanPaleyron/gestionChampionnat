@@ -49,7 +49,7 @@ class Day
         return $this;
     }
 
-    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "day")]
+    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "day", cascade: ['persist', 'remove'])]
     private Collection $games;
 
     #[ORM\ManyToOne(targetEntity: Championship::class, inversedBy: "id_championship")]

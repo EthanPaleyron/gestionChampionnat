@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Championnats{% endblock %}
+
+{% block body %}
+<h1>Liste des Championnats</h1>
+<ul>
+    {% for championship in championships %}
+        <li><a href="/championship/{{ championship.id }}">{{ championship.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

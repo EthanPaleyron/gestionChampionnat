@@ -113,9 +113,9 @@ class Team
 
     #[ORM\ManyToOne(targetEntity: Country::class, inversedBy: "teams")]
     private Country $country;
-    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "team1")]
+    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "team1", cascade: ['persist', 'remove'])]
     private Collection $games1;
-    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "team2")]
+    #[ORM\OneToMany(targetEntity: Game::class, mappedBy: "team2", cascade: ['persist', 'remove'])]
     private Collection $games2;
 
     #[ORM\ManyToMany(targetEntity: Championship::class, inversedBy: "team")]

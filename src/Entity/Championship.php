@@ -111,10 +111,10 @@ class Championship
         return $this;
     }
 
-    #[ORM\OneToMany(targetEntity: Day::class, mappedBy: "championship")]
+    #[ORM\OneToMany(targetEntity: Day::class, mappedBy: "championship", cascade: ['persist', 'remove'])]
     private Collection $days;
 
-    #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: "championship")]
+    #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: "championships")]
     private Collection $teams;
     public function __construct()
     {

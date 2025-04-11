@@ -21,6 +21,15 @@ class DayRepository extends ServiceEntityRepository
         return $this->findAll();
     }
 
+    public function getAllFormIdChampionship(int $idChampionship): array
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('d.championship = :idChampionship')
+            ->setParameter('idChampionship', $idChampionship)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function getById(int $id): ?Day
     {
         return $this->find($id);

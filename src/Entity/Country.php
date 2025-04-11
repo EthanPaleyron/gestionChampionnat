@@ -50,7 +50,7 @@ class Country
         return $this;
     }
 
-    #[ORM\OneToMany(targetEntity: Team::class, mappedBy: "country")]
+    #[ORM\OneToMany(targetEntity: Team::class, mappedBy: "country", cascade: ['persist', 'remove'])]
     private Collection $teams;
 
     public function __construct()

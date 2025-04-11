@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Championnats{% endblock %}
+
+{% block body %}
+<h1>Calendrier et résultats : {{ championship.name }}</h1>
+
+<select>
+    {% for day in days %}
+        <option value="{{ day.id }}">{{ day.number }}</option>
+    {% endfor %}
+</select>
+
+{% for team in teams %}
+    <li>{{ team.name }}</li>
+{% endfor %}
+
+{% endblock %}
